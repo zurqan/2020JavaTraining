@@ -236,6 +236,13 @@ public class MainApplicationSession2 {
 //                    return "Hello " + name;
 //                })
 //                .forEach(System.out::println);
+
+
+//        Stream
+//                .of(students)
+//                .flatMap(s->
+//                        s.getCourses().stream().map(c->new Tuple<Course,Student>(c,s)));
+
     }
 
 
