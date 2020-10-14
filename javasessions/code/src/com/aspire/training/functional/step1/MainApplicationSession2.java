@@ -241,7 +241,9 @@ public class MainApplicationSession2 {
 //        Stream
 //                .of(students)
 //                .flatMap(s->
-//                        s.getCourses().stream().map(c->new Tuple<Course,Student>(c,s)));
+//                        s.getCourses().stream().map(c->new Tuple<Course,Student>(c,s)))
+//                .forEach(t-> System.out.println(t._1+", "+t._2.getName()));
+
 
     }
 
