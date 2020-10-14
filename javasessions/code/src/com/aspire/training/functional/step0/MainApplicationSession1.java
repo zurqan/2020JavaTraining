@@ -1,4 +1,4 @@
-package src.com.aspire.training.functional.step0;
+package com.aspire.training.functional.step0;
 
 public class MainApplicationSession1 {
     public static final BiIntFunction mult=(x,y)->x*y;

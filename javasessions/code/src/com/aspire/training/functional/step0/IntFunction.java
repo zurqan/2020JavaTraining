@@ -1,4 +1,4 @@
-package src.com.aspire.training.functional.step0;
+package com.aspire.training.functional.step0;
 
 @FunctionalInterface
 public interface IntFunction {
