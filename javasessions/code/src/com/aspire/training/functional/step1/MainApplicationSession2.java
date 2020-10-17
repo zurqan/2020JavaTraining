@@ -1,14 +1,9 @@
 package com.aspire.training.functional.step1;
 
-import java.io.InputStream;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static com.aspire.training.functional.step1.Course.JAVA;
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
 
 public class MainApplicationSession2 {
 
@@ -163,6 +158,7 @@ public class MainApplicationSession2 {
 
 //        ArrayList<Student> reduce = Stream
 //                .of(students)
+//                .parallel()
 //                .reduce(new ArrayList<Student>(),
 //                        (acc, e) -> {
 //                            acc.add(e);//this is not acceptable in pure function
@@ -172,10 +168,17 @@ public class MainApplicationSession2 {
 ////                            newArrayList.addAll(acc);
 //                            return acc;
 //                        }, (a, b) -> {
-//                            a.addAll(b);
-//                            return a;
-//                        });
+//                            System.out.println("a = " + a +", "+Thread.currentThread().getName());
+//                            System.out.println("b = " + b+", "+Thread.currentThread().getName());
+//                            Set<Student> set
+//                                    =new HashSet<>();
 //
+//                            a.stream().filter(x->x!=null).forEach(set::add);
+//                            b.stream().filter(x->x!=null).forEach(set::add);
+//
+//                            return new ArrayList<>(set);
+//                        });
+////
 //        System.out.println("reduce = " + reduce);
 
 //        Integer maxStAge = Stream
@@ -245,7 +248,65 @@ public class MainApplicationSession2 {
 //                .forEach(t-> System.out.println(t._1+", "+t._2.getName()));
 
 
+//        int sum = IntStream
+//                .rangeClosed(0, 10)
+//                .reduce(0, (acc, x) -> {
+//                    System.out.println("x = " + x);
+//                    System.out.println("acc = " + acc);
+//                    return acc + x;
+//                });
+
+
+//        Stream.of(students)
+//                .map(Student::getName)
+////                .parallel()
+//                .forEach(name->{
+//                    String threadName = Thread.currentThread().getName();
+//                    System.out.println("name = " + name+", Thread: "+threadName);
+//                });
+
+
+        Optional<String> stNameStartWithZ = Stream
+                .of(students)
+                .map(Student::getName)
+                .filter(name -> name.startsWith("Z"))
+                .findFirst();
+
+
+//        String stName = stNameStartWithZ
+//                .map(name -> "Student Name is: " + name)
+//                    .orElseThrow(()->new RuntimeException("No Student Founded!"));
+////                .orElseGet(()->"No Student Start with Z");
+////                .orElse("No Student Start with Z");
+//
+//        System.out.println("stName = " + stName);
+
+
+        Integer result = divideFunctional(5, 4)
+
+                .orElseGet(() -> 0);
+        System.out.println("result = " + result);
+
+        Integer res2 = divideFunctional(4, 2)
+                .get();
+        System.out.println("res2 = " + res2);
+        Optional<Integer> opt = divideFunctional(4, 0);
+        if (opt.isPresent()) {
+            Integer res0 = opt
+                    .get();
+            System.out.println("res0 = " + res0);
+        }
     }
 
+
+    public static int divide(int a, int b) {
+        return a / b;//this is not functional..why?
+
+    }
+
+    public static Optional<Integer> divideFunctional(int a, int b) {
+
+        return b == 0 ? Optional.empty() : Optional.of(a / b);
+    }
 
 }
