@@ -177,6 +177,7 @@ public class MyLinkedList<E> {
 
     // e->acc->acc
     public <U> U reduceRight(U seed,Function<? super E,Function<? super U,? extends U>> reducerFunction){
+
       return null;//TODO
     }
 
@@ -203,7 +204,12 @@ public class MyLinkedList<E> {
     }
 
     public boolean anyMatch(Predicate<? super E> condition){
-        return  false;//TODO implementation
+        Iterator<E> iterate = iterate();
+        while (iterate.hasNext()){
+            E element = iterate.next();
+            if(condition.test(element))return true;
+        }
+        return  false;
     }
 
     public boolean nonMatch(Predicate<? super E> condition){
