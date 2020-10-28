@@ -66,5 +66,8 @@ public abstract class TailCall<R> {
         public boolean isSuspend() {
             return true;
         }
+
+
+
     }
  }
