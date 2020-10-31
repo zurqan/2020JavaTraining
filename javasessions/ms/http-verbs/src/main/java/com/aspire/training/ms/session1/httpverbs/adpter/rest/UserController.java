@@ -4,6 +4,7 @@ import com.aspire.training.ms.session1.httpverbs.model.User;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.*;
 
 @RestController
@@ -16,7 +17,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User savingUser(@RequestBody User user){
+    public User savingUser(@RequestBody @Valid User user){
         System.out.println("UserController.savingUser");
         if(users.get(user.getId())!=null){
             throw new RuntimeException("Already exist");
