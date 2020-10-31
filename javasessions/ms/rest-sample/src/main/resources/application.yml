@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active:
+       - qa
+
+com:
+  aspire:
+    training:
+#      enabled: false
+      greeting: Helloooooooooo!
