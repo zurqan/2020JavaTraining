@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: api-gw
+
+server:
+  port: 80
+
+
+eureka:
+  instance:
+    prefer-ip-address: true

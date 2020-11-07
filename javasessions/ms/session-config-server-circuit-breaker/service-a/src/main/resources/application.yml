@@ -1,0 +1,26 @@
+server:
+  port: 1000
+
+spring:
+  application:
+    name: service-a
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+feign:
+
+
+  hystrix:
+    enabled: true
+
+
+

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: user-managemnt-a
+
+server:
+  port: 1000
+
+eureka:
+#  client:
+#    service-url:
+#      default-zone: ...put the ip
+  instance:
+    prefer-ip-address: true

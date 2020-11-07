@@ -1,0 +1,16 @@
+
+server:
+  port: 5000
+
+spring:
+  application:
+    name: config-client
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
