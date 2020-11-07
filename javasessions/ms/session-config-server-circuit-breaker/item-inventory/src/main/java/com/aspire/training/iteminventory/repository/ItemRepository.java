@@ -2,6 +2,7 @@ package com.aspire.training.iteminventory.repository;
 
 import com.aspire.training.iteminventory.model.Item;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ItemRepository {
@@ -10,4 +11,6 @@ public interface ItemRepository {
     boolean updateItem(Item item);
 
     Optional<Item> loadItem(String itemId);
+
+    List<Item> itemsShortDesc(String desc);
 }

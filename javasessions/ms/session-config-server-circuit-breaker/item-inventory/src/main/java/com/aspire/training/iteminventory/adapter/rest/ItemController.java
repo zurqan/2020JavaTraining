@@ -10,8 +10,10 @@ import com.aspire.training.iteminventory.service.ItemService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/items")
@@ -22,6 +24,7 @@ public class ItemController {
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
+
 
     @PostMapping
     public String addingItem(@RequestBody @Valid ItemDTO itemDTO){
@@ -38,11 +41,22 @@ public class ItemController {
 
     @GetMapping("{itemId}")
     public ItemDTO loadingItem(@PathVariable("itemId") String itemId){
+
         return
                 itemService
                 .loadItem(itemId)
                 .map(toDtoMapper)
                 .orElseThrow(()->new ItemNotFoundException(itemId));
+    }
+
+    @GetMapping("/search")
+    public List<ItemDTO> searchItemByDesc(@RequestParam("short") String shortDesc){
+
+        return itemService
+                .searchByDescription(shortDesc)
+                .stream()
+                .map(toDtoMapper)
+                .collect(Collectors.toList());
     }
 
 
@@ -60,6 +74,7 @@ public class ItemController {
             item->
                     ItemDTO.builder()
                             .id(item.getItemId())
+                            .price(item.getPrice().getValue())
                             .longDesc(item.getItemDescription().getLongDescription())
                             .shortDesc(item.getItemDescription().getShortDescription())
                             .manName(item.getManufacturer().getName())

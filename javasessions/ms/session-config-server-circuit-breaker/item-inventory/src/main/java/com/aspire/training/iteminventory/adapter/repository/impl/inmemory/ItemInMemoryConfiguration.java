@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(prefix = "db.in-memory",name = "enabled",matchIfMissing = true)
+@ConditionalOnProperty(prefix = "com.aspire.training.db.in-memory",name = "enabled",matchIfMissing = true)
 public class ItemInMemoryConfiguration {
 
     @Bean

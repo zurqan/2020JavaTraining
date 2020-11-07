@@ -5,6 +5,7 @@ import com.aspire.training.iteminventory.model.Item;
 import com.aspire.training.iteminventory.model.Price;
 import com.aspire.training.iteminventory.repository.ItemRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ItemService {
@@ -50,5 +51,9 @@ public class ItemService {
     public Optional<Item> loadItem(String itemId){
 
         return itemRepository.loadItem(itemId);
+    }
+
+    public List<Item> searchByDescription(String desc){
+        return itemRepository.itemsShortDesc(desc);
     }
 }

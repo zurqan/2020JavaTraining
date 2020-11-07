@@ -4,6 +4,7 @@ import com.aspire.training.iteminventory.model.Item;
 import com.aspire.training.iteminventory.repository.ItemRepository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,5 +31,10 @@ public class ItemInMemoryRepositoryImpl implements ItemRepository {
 
         Item item = db.get(itemId);
         return Optional.ofNullable(item);
+    }
+
+    @Override
+    public List<Item> itemsShortDesc(String name) {
+        return null;
     }
 }
