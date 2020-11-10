@@ -8,7 +8,7 @@ spring:
   data:
     mongodb:
       database: testDB
-      uri: mongodb+srv://training:1234@cluster0.5xuvr.mongodb.net/testDB?retryWrites=true&w=majority
+      uri: mongodb+srv://username:password@cluster0.5xuvr.mongodb.net/testDB?retryWrites=true&w=majority
 
   jpa:
 #  don't use this in production
