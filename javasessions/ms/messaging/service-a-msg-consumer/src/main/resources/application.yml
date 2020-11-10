@@ -1,0 +1,14 @@
+server:
+  port: 4444
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        hello-input-channel:
+          destination: hello-ch
+          group: hello-logging-group
+
+  applicatikon:
+    name: hello-consumer
+
