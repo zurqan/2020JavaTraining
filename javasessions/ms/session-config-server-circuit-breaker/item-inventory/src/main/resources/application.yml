@@ -2,7 +2,14 @@ server:
   port: 8080
 
 
+
 spring:
+
+  data:
+    mongodb:
+      database: testDB
+      uri: mongodb+srv://training:1234@cluster0.5xuvr.mongodb.net/testDB?retryWrites=true&w=majority
+
   jpa:
 #  don't use this in production
     generate-ddl: true
@@ -21,8 +28,10 @@ com:
   aspire:
     training:
       db:
-        rds:
+        mongo:
           enabled: true
+        rds:
+          enabled: false
         in-memory:
           enabled: false
       error-msgs:
