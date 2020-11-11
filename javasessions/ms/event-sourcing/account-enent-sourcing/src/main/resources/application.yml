@@ -1,0 +1,21 @@
+server:
+  port: 3030
+
+spring:
+
+  jpa:
+    #  don't use this in production
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+  #  h2:
+  #    console:
+  #      enabled: true
+  datasource:
+    username: training
+    password: 1234
+    url: jdbc:mysql://localhost:3306/training?serverTimezone=UTC
+#  url: jdbc:h2:mem:itemDB
+  application:
+    name: account-es
+
