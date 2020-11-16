@@ -1,0 +1,15 @@
+server:
+  port: 2020
+
+spring:
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    username: training
+    password: 1234
+    url: jdbc:mysql://localhost:3306/training?serverTimezone=UTC
+  application:
+    name: item-inventory
+
